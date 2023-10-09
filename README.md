@@ -3,7 +3,7 @@
 
 Welcome to the Airbnb Clone project! This project is the first step towards building a full web application that emulates the functionality of Airbnb. Before you begin, it's essential to understand the Airbnb concept. Please read the [Airbnb Concept Page](https://www.airbnb.com/about/about-us).
 
-![Airbnb Logo](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231009%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231009T101713Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=08799d81f7ffc8c64f8af7a3798e84aaf4c11f4014041f9d48eee4efea6e97c5)
+![Airbnb Logo](https://user-images.githubusercontent.com/98162365/176899920-64b889dc-9e43-4413-b0a4-b1821b53dc2b.png)
 
 ## Overview:
 - [Team members](#team-members)

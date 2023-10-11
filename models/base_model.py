@@ -11,19 +11,34 @@ class BaseModel:
     This is a class that defines all common attributes/methods
     for other classes.
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
         Initialization...
+
+        Args:
+            *args (any): Not used
+            **kwargs (dict): Key/value pairs of attributes
         """
-        self.id = str(uuid.uuid4()) # To generate a unique ID
+
+        self.id = str(uuid.uuid4())  # To generate a unique ID
         self.created_at = datetime.now()  # To set creation timestamp
-        self.updated_at = datetime.now() # Initial update
+        self.updated_at = datetime.now()  # Initial update
+
+        timefmt = "%Y-%m-%dT%H:%M:%S.%f"
+        if kwargs is not None:
+            for key, value in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.strptime(value, timefmt)
+                else:
+                    self.__dict__[key] = value
 
     def __str__(self):
         """
         To print
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(
+                self.__class__.__name__, self.id, self.__dict__
+        )
 
     def save(self):
         """

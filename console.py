@@ -42,9 +42,9 @@ class HBNBCommand(cmd.Cmd):
         To create a new instance
         """
         classes = {
-                "BaseModel":BaseModel, "User":User,
-                "State":State, "City":City, "Amenity":Amenity,
-                "Place":Place, "Review":Review
+                "BaseModel": BaseModel, "User": User,
+                "State": State, "City": City, "Amenity": Amenity,
+                "Place": Place, "Review": Review
                 }
         if not arg:
             print("** class name missing **")
@@ -70,11 +70,15 @@ class HBNBCommand(cmd.Cmd):
         Prints the string representation of an instance
         based on the class name and id
         """
+        classes = [
+                "BaseModel", "User", "State", "City",
+                "Amenity", "Place", "Review"
+                ]
         if not arg:
             print("** class name missing **")
             return
         args = arg.split()
-        if args[0] not in ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]:
+        if args[0] not in classes:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -91,11 +95,15 @@ class HBNBCommand(cmd.Cmd):
         """
         Delete an instance based on class name and id
         """
+        classes = [
+                "BaseModel", "User", "State", "City",
+                "Amenity", "Place", "Review"
+                ]
         if not arg:
             print("** class name missing **")
             return
         args = arg.split()
-        if args[0] not in ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]:
+        if args[0] not in classes:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -114,6 +122,10 @@ class HBNBCommand(cmd.Cmd):
         Prints all string representation of all instances
         based or not on the class name
         """
+        classes = [
+                "BaseModel", "User", "State", "City",
+                "Amenity", "Place", "Review"
+                ]
         args = arg.split()
         objects = storage.all()
         everyting = []
@@ -122,7 +134,7 @@ class HBNBCommand(cmd.Cmd):
             for obj in objects.values():
                 everyting.append(str(obj))
             print(everyting)
-        elif args[0] not in ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]:
+        elif args[0] not in classes:
             print("** class doesn't exist **")
         else:
             for key in objects:
@@ -135,11 +147,15 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the class name and id
         by adding or updating attribute
         """
+        classes = [
+                "BaseModel", "User", "State", "City",
+                "Amenity", "Place", "Review"
+                ]
         if not arg:
             print("** class name missing **")
             return
         args = arg.split()
-        if args[0] not in ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]:
+        if args[0] not in classes:
             print("** class doesn't exist **")
             return
         if len(args) < 2:

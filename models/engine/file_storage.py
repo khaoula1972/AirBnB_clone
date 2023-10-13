@@ -3,7 +3,6 @@
 This file contains class
 """
 import json
-from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -42,12 +41,17 @@ class FileStorage:
         """
         Deserializes the JSON file to __objects.
         """
+        from models.base_model import BaseModel
+
+        classes = {'BaseModel': BaseModel}
+
         try:
-            with open(FileStorage.__file_path, 'r') as f:
-                data = json.load(f)
-                for obj in data.values():
-                    class_name = obj["__class__"]
-                    del obj["__class__"]
-                    self.new(eval(class_name)(**obj))
+            data = {}
+
+            with open(FileStorage.__file_path, 'r') as file:
+                data = json.load(file)
+                for key, val in data.items():
+                    self.all()[key] = classes[val['__class__']](**val)
+
         except FileNotFoundError:
-            return
+            pass

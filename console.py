@@ -4,6 +4,7 @@ This contains the console
 """
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
@@ -35,15 +36,25 @@ class HBNBCommand(cmd.Cmd):
         """
         To create a new instance
         """
+        classes = {"BaseModel":BaseModel, "User":User}
         if not arg:
             print("** class name missing **")
             return
+        elif arg not in classes:
+            print("** class doesn't exist **")
+            return
+        new_instance = classes[arg]()
+        new_instance.save()
+        print(new_instance.id)
+        storage.save()
+        """
         try:
             new_instance = BaseModel()
             new_instance.save()
             print(new_instance.id)
         except ImportError:
             print("** class doesn't exist **")
+        """
 
     def do_show(self, arg):
         """
@@ -54,7 +65,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         args = arg.split()
-        if args[0] not in ["BaseModel"]:
+        if args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -75,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         args = arg.split()
-        if args[0] not in ["BaseModel"]:
+        if args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -102,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
             for obj in objects.values():
                 everyting.append(str(obj))
             print(everyting)
-        elif args[0] not in ["BaseModel"]:
+        elif args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         else:
             for key in objects:
@@ -119,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         args = arg.split()
-        if args[0] not in ["BaseModel"]:
+        if args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
             return
         if len(args) < 2:

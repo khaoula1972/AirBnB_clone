@@ -170,11 +170,6 @@ class TestFileStorageMethods(unittest.TestCase):
     def test_reload_method_with_argument(self):
         with self.assertRaises(TypeError):
             models.storage.reload(None)
-<<<<<<< HEAD
-
 
 if __name__ == "__main__":
     unittest.main()
-
-=======
->>>>>>> master

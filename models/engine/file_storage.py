@@ -2,7 +2,6 @@
 """
 This file contains class
 """
-import json
 
 
 class FileStorage:

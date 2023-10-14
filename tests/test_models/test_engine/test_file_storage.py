@@ -85,9 +85,9 @@ class TestFileStorageMethods(unittest.TestCase):
         models.storage.new(city)
         models.storage.new(amenity)
         models.storage.new(review)
-        self.assertIn("BaseModel." + basemodel.id, models.storage.all().keys())
-        self.assertIn(basemodel, models.storage.all().values())
-        self.assertIn("User." + us.id, models.storage.all().keys())
+        self.assertIn("BaseModel." + base_model.id, models.storage.all().keys())
+        self.assertIn(base_model, models.storage.all().values())
+        self.assertIn("User." + user.id, models.storage.all().keys())
         self.assertIn(user, models.storage.all().values())
         self.assertIn("State." + state.id, models.storage.all().keys())
         self.assertIn(state, models.storage.all().values())
@@ -170,8 +170,11 @@ class TestFileStorageMethods(unittest.TestCase):
     def test_reload_method_with_argument(self):
         with self.assertRaises(TypeError):
             models.storage.reload(None)
+<<<<<<< HEAD
 
 
 if __name__ == "__main__":
     unittest.main()
 
+=======
+>>>>>>> master

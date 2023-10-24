@@ -1,6 +1,7 @@
 .places {
     padding: 20px;
     align-items: center;
+    text-align: center;
 }
 
 .places article {
@@ -19,7 +20,7 @@
     text-align: center;
 }
 
-.places article h1 {
+.places h1 {
     font-size: 30px;
     vertical-align: top;
     text-align: left;
